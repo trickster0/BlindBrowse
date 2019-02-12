@@ -1,15 +1,24 @@
 # BlindBrowse
 Android BlindBrowse : Real Time Navigation on Android devices with no screens.
+
+
 BlindBrowse supports ADB and SSH protocol. SSH is not tested very thoroughly but it should work okay, so ADB is recommended.
 
 
 <IMG SRC="https://raw.githubusercontent.com/trickster0/BlindBrowse/master/example.png"/>
 
 ***Refreshing the Browser is not needed!***
+
+
 <strong>USAGE:</strong>
 <p>
 <pre><code>python blindbrowse.py
 </code></pre>
+
+# Why would this be helpful?
+Some IoT devices have ADB debugging interface or rarely SSH but not Screens.
+This would help you browse the device and change settings or other things.
+
 
 Author: Thanasis Tserpelis aka trickster0
 
