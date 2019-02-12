@@ -67,6 +67,7 @@ def CC(prefix):
 	customkey x - it will send a keyevent like unlocking the screen
 	text string - write text
 	tap x y - tap to coordinates according to resolution
+	update - it will refresh the browser if you feel like the connection is slow and the new screen is not the preper one
 	packages - shows all packages on the device
 	start Package/.activity - start will open to foreground the named activity of thepackage
 	search_package package - it will search packages with the given package name
@@ -162,6 +163,8 @@ def CC(prefix):
 		cmdkey="'input keyevent '" + newkey
 		callkey=prefix + " " + cmdkey
 		os.system(callkey)
+		updatescreen(prefix)
+	elif command=="update":
 		updatescreen(prefix)
 	else:
 		print "Command does not exist"
