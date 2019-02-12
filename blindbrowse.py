@@ -28,7 +28,7 @@ else:
 if os.path.isfile("/usr/bin/sshpass"):
         print "[+] SSHPASS found."
 else:
-        print "[X] ADB not found. Please install SSHPASS! \n"
+        print "[X] SSHPASS not found. Please install SSHPASS! \n"
 
 def initialize():
 	global driver
@@ -158,7 +158,7 @@ def CC(prefix):
 		updatescreen(prefix)
 	elif "customkey" in command:
 		pre,newkey=command.split(" ")
-		cmdkey="'input keyevent'" + newkey
+		cmdkey="'input keyevent '" + newkey
 		callkey=prefix + " " + cmdkey
 		os.system(callkey)
 		updatescreen(prefix)
