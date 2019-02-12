@@ -1,5 +1,6 @@
 # BlindBrowse
-Android BlindBrowser : Real Time Navigation on Android devices with no screens.
+Android BlindBrowse : Real Time Navigation on Android devices with no screens.
+BlindBrowse supports ADB and SSH protocol. SSH is not tested very thoroughly but it should work okay, so ADB is recommended.
 
 
 <IMG SRC="https://raw.githubusercontent.com/trickster0/BlindBrowse/master/example.png"/>
