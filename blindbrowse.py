@@ -12,7 +12,7 @@ print '''
 ###########################################################################
 #                                                                         #
 #                          Android BlindBrowse                            #
-#                MADE BY ATHANASIOS TSERPELIS AKA TRICKSER0               #
+#                MADE BY ATHANASIOS TSERPELIS AKA TRICKSTER0              #
 #                                                                         #
 #                                                                         #
 ###########################################################################\n
@@ -32,6 +32,7 @@ else:
 
 def initialize():
 	global driver
+	os.system("chmod +x geckodriver")
 	os.system("python -m SimpleHTTPServer 8080 2>/dev/null &")
 	print "\n"
 	driver = webdriver.Firefox(executable_path=r'./geckodriver')
