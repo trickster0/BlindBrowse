@@ -29,6 +29,7 @@ if os.path.isfile("/usr/bin/sshpass"):
         print "[+] SSHPASS found."
 else:
         print "[X] SSHPASS not found. Please install SSHPASS! \n"
+	sys.exit()
 
 def initialize():
 	global driver
