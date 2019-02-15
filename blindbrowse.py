@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from selenium import webdriver
+from string import Template
 import urllib
 import urllib2
 import os
@@ -30,6 +31,36 @@ if os.path.isfile("/usr/bin/sshpass"):
 else:
         print "[X] SSHPASS not found. Please install SSHPASS! \n"
 	sys.exit()
+def generatehtml():
+	f = open('index.html','w')
+	file = """<html>
+<title>BlindBrowse</title>
+<h1>Welcome to BlindBrowse "LiveStreaming"</h1>
+<head>
+<script language="JavaScript">
+
+function point_it(event){
+	pos_x = event.offsetX?(event.offsetX):event.pageX-document.getElementById("pointer_div").offsetLeft;
+	pos_y = event.offsetY?(event.offsetY):event.pageY-document.getElementById("pointer_div").offsetTop;
+	document.getElementById("cross").style.left = (pos_x-1) ;
+	document.getElementById("cross").style.top = (pos_y-15) ;
+	document.getElementById("cross").style.visibility = "visible" ;
+	document.pointform.form_x.value = pos_x;
+	document.pointform.form_y.value = pos_y;
+}
+</script>
+</head>
+<body>
+<form name="pointform" method="post">
+<div id="pointer_div" onclick="point_it(event)" style = "background-image:url('screen.png');width:%spx;height:%spx;">
+<img src="point.gif" id="cross" style="position:relative;visibility:hidden;z-index:2;"></div>
+x = <input type="label" name="form_x" size="4" />   y = <input type="label" name="form_y" size="4" />
+</form> 
+</body>
+</html>
+""" % (x,y.rstrip())
+	f.write(file)
+	f.close()
 
 def initialize():
 	global driver
@@ -83,6 +114,7 @@ def CC(prefix):
 		pid=output.split("\n")
 		final="kill -9 " + pid[0]
 		os.system(final)
+		driver.quit()
 		sys.exit()
 	elif command=="home":
 		cmdh="'input keyevent 3'"
@@ -181,6 +213,9 @@ if dbornotdb=="ssh":
         p=subprocess.Popen(cmdres, stdout=subprocess.PIPE, stderr=None, shell=True)
         output = p.communicate()[0].replace(" ","")
         x,y = output.split("x")
+	print "Resolution Detected: %s" %output
+	generatehtml()
+	driver.refresh()
 	while True:
         	CC(prefix)
 elif dbornotdb=="adb":
@@ -189,6 +224,8 @@ elif dbornotdb=="adb":
 	output = p.communicate()[0].replace(" ","")
 	x,y = output.split("x")
 	print "Resolution Detected: %s" %output
+	generatehtml()
+	driver.refresh()
 	prefix="adb shell"
 	while True:
         	CC(prefix)
