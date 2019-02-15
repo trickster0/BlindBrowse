@@ -7,6 +7,7 @@ BlindBrowse supports ADB and SSH protocol. SSH is not tested very thoroughly but
 
 <IMG SRC="https://raw.githubusercontent.com/trickster0/BlindBrowse/master/example.png"/>
 ***Updated to see the coordinates on the webserver***
+
 ***Refreshing the Browser is not needed!***
 
 
